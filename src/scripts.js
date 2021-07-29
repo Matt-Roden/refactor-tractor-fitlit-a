@@ -53,9 +53,9 @@ sleepData.forEach((sleep) => {
 });
 
 // user = userRepository.users[0];
-// console.log(userRepository.users[0]);
+
 let todayDate = '2019/09/22';
-user.findFriendsNames(userRepository.users[0]);
+user.findFriendsNames(userRepository.users);
 
 let dailyOz = document.querySelectorAll('.daily-oz');
 let dropdownEmail = document.querySelector('#dropdown-email');
