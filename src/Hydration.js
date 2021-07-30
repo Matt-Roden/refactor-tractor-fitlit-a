@@ -3,6 +3,12 @@ class Hydration {
     this.data = hydrationData;
   }
 
+  getHydrationDataByID(id) {
+    this.hydrationData
+      .filter((entry) => entry.id === id)
+      .sort((a, b) => (a.date > b.date ? 1 : -1));
+  }
+
   calculateAverageDailyWater(date) {
     let todaysDrinkers = this.users.filter((user) => {
       return user.addDailyOunces(date) > 0;

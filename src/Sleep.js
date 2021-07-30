@@ -3,7 +3,7 @@ class Sleep {
     this.sleepData = sleepData;
   }
 
-  getSleepData(id) {
+  getSleepDataByID(id) {
     this.sleepData
       .filter((entry) => entry.id === id)
       .sort((a, b) => (a.date > b.date ? 1 : -1));

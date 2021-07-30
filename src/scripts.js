@@ -7,32 +7,41 @@ import User from './User';
 import Activity from './Activity';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
-import updateUser from './updateDOM';
+import {
+  displayUserData,
+  displayHydrationData,
+  displaySleepData,
+  displayActivityData,
+} from './updateDOM';
 
-let userID;
 let todayDate = '2019/09/22';
-let randomIndex = Math.floor(Math.round() * 50);
 
 // function to create random number for user
 const getRandomID = () => Math.floor(Math.random() * 50) + 1;
 
-userID = getRandomID();
+let randomID = getRandomID();
 
 getData('users')
   .then((data) => {
     let userRepository = new UserRepository(data.userData);
-    let user = new User(userRepository.getUser(userID));
+    let user = new User(userRepository.getUser(randomID));
   })
-  .then(updateUser);
+  .then(displayUserData);
 
-getData('hydration').then((data) => {
-  let hydration = new Hydration(data.hydrationData);
-});
+getData('hydration')
+  .then((data) => {
+    let hydration = new Hydration(data.hydrationData);
+  })
+  .then(displayHydrationData);
 
-getData('sleep').then((data) => {
-  let sleep = new Sleep(data.sleepData);
-});
+getData('sleep')
+  .then((data) => {
+    let sleep = new Sleep(data.sleepData);
+  })
+  .then(displaySleepData);
 
-getData('activity').then((data) => {
-  let activity = new Activity(data.activityData);
-});
+getData('activity')
+  .then((data) => {
+    let activity = new Activity(data.activityData);
+  })
+  .then(displayActivityData);
