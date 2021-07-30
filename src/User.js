@@ -22,9 +22,9 @@ class User {
     this.friendsActivityRecords = [];
   }
   getFirstName() {
-    var names = this.name.split(' ');
-    return names[0].toUpperCase();
+    return this.name.split(' ').toUpperCase;
   }
+
   updateHydration(date, amount) {
     this.ouncesRecord.unshift({ [date]: amount });
     if (this.ouncesRecord.length) {
