@@ -3,6 +3,7 @@ const getData = (suffix) => {
   const promise = fetch(`${baseURL}${suffix}`).then((response) =>
     response.json()
   );
+  console.log(promise);
   return promise;
 };
 
