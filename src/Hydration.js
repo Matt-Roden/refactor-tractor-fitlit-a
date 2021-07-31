@@ -1,8 +1,9 @@
 class Hydration {
   constructor(hydrationData, id) {
     this.hydrationData = hydrationData;
+    this.userID = id;
     this.userHydrationData = this.hydrationData
-      .filter((entry) => entry.id === id)
+      .filter((entry) => entry.userID === this.userID)
       .sort((a, b) => (a.date > b.date ? 1 : -1));
   }
 
