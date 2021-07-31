@@ -10,11 +10,5 @@ class UserRepository {
       return user.id === id;
     });
   }
-
-  findFriendsNames(userFriends) {
-    let friendsNames = [];
-    userFriends.forEach((id) => {
-      this.getUser(id)
-
-
+}
 export default UserRepository;
