@@ -11,9 +11,6 @@ class UserRepository {
     });
   }
 
-
-
-  
   findFriendsNames(userFriends) {
     let friendsNames = [];
     userFriends.forEach((id) => {
