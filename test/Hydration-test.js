@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import Hydration from '../src/Hydration';
 import hydrationData from '../src/data/hydration';
+import singleUserHydrationTestData from '../src/data/single-user-hydration-data';
 
 describe.only('Hydration', function () {
   let hydration, id;
@@ -23,7 +24,23 @@ describe.only('Hydration', function () {
   });
 
   it("should be able to store a single user's hydration data", () => {
-    console.log(hydration.userHydrationData);
-    expect(hydration.userHydrationData).to.deep.equal();
+    expect(hydration.userHydrationData).to.deep.equal(
+      singleUserHydrationTestData
+    );
+  });
+
+  it("should be able to return a single user's hydration for any week", () => {
+    expect(hydration.getUserOzByWeek('2019/09/07')).to.deep.equal({
+      date: [
+        '2019/09/01',
+        '2019/09/02',
+        '2019/09/03',
+        '2019/09/04',
+        '2019/09/05',
+        '2019/09/06',
+        '2019/09/07',
+      ],
+      ounces: [46, 64, 28, 69, 63, 93, 47],
+    });
   });
 });

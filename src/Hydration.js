@@ -21,23 +21,23 @@ class Hydration {
   }
 
   getUserOzByWeek(date) {
-    const target = this.userHydration.find(
+    const target = this.userHydrationData.find(
       (userEntry) => userEntry.date === date
     );
-    const index = this.userHydration.indexOf(target);
+    const index = this.userHydrationData.indexOf(target);
     if (index < 7) {
-      let dates = this.userHydration
+      let dates = this.userHydrationData
         .slice(0, index + 1)
         .map((userEntry) => userEntry.date);
-      let numOunces = this.userHydration
+      let numOunces = this.userHydrationData
         .slice(0, index + 1)
         .map((userEntry) => userEntry.numOunces);
       return { date: dates, ounces: numOunces };
     } else {
-      let dates = this.userHydration
+      let dates = this.userHydrationData
         .slice(index - 6, index + 1)
         .map((userEntry) => userEntry.date);
-      let numOunces = this.userHydration
+      let numOunces = this.userHydrationData
         .slice(index - 6, index + 1)
         .map((userEntry) => userEntry.numOunces);
       return { date: dates, ounces: numOunces };
