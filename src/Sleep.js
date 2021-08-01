@@ -110,28 +110,6 @@ export default Sleep;
 // }
 // }
 
-// getUserQualityByWeek(date) {
-//   const target = this.userSleep.find((userEntry) => userEntry.date === date);
-//   const index = this.userSleep.indexOf(target);
-//   if (index < 7) {
-//     let dates = this.userSleep
-//       .slice(0, index + 1)
-//       .map((userEntry) => userEntry.date);
-//     let sleepQuality = this.userSleep
-//       .slice(0, index + 1)
-//       .map((userEntry) => userEntry.sleepQuality);
-//     return { date: dates, quality: sleepQuality };
-//   } else {
-//     let dates = this.userSleep
-//       .slice(index - 6, index + 1)
-//       .map((userEntry) => userEntry.date);
-//     let sleepQuality = this.userSleep
-//       .slice(index - 6, index + 1)
-//       .map((userEntry) => userEntry.sleepQuality);
-//     return { date: dates, quality: sleepQuality };
-//   }
-// }
-// }
 // findBestSleepers(date) {
 //   return this.users.filter((user) => {
 //     return user.calculateAverageQualityThisWeek(date) > 3;
