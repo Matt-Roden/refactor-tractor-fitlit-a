@@ -28,7 +28,7 @@ describe('Sleep', () => {
     expect(sleep.userSleepData).to.deep.equal(singleUserSleepData);
   });
 
-  it('should be able to calculate average hours slept for a user', () => {
+  it.only('should be able to calculate average hours slept for a user', () => {
     expect(sleep.calculateAverage(sleep.userSleepData, 'hoursSlept')).to.equal(
       8
     );
@@ -65,7 +65,7 @@ describe('Sleep', () => {
     });
   });
 
-  it.only("should be able to get a user's hours slept for any week", () => {
+  it("should be able to get a user's hours slept for any week", () => {
     expect(
       sleep.getUserSleepByWeek('2019/08/12', 'hoursSlept', 'hours')
     ).to.deep.equal({
@@ -83,6 +83,6 @@ describe('Sleep', () => {
   });
 
   it('should be able to calculate average hours slept for all users', () => {
-    expect(sleep.calculateAverage('hoursSlept')).to.equal();
+    expect(sleep.calculateAverage(sleep.sleepData, 'hoursSlept')).to.equal(8);
   });
 });
