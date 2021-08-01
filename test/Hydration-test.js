@@ -3,7 +3,7 @@ import Hydration from '../src/Hydration';
 import hydrationData from '../src/data/hydration';
 import singleUserHydrationTestData from '../src/data/single-user-hydration-data';
 
-describe.only('Hydration', function () {
+describe('Hydration', () => {
   let hydration, id;
 
   beforeEach(() => {
@@ -11,11 +11,11 @@ describe.only('Hydration', function () {
     hydration = new Hydration(hydrationData, id);
   });
 
-  it('should be a function', function () {
+  it('should be a function', () => {
     expect(Hydration).to.be.a('function');
   });
 
-  it('should be an instance of hydrate', function () {
+  it('should be an instance of hydrate', () => {
     expect(hydration).to.be.an.instanceof(Hydration);
   });
 
