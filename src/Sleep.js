@@ -22,21 +22,23 @@ class Sleep {
   }
 
   getUserSleepByWeek(date, property, key) {
-    const target = this.userSleep.find((userEntry) => userEntry.date === date);
-    const index = this.userSleep.indexOf(target);
+    const target = this.userSleepData.find(
+      (userEntry) => userEntry.date === date
+    );
+    const index = this.userSleepData.indexOf(target);
     if (index < 7) {
-      let dates = this.userSleep
+      let dates = this.userSleepData
         .slice(0, index + 1)
         .map((userEntry) => userEntry.date);
-      let sleepValue = this.userSleep
+      let sleepValue = this.userSleepData
         .slice(0, index + 1)
         .map((userEntry) => userEntry[property]);
       return { date: dates, [key]: sleepValue };
     } else {
-      let dates = this.userSleep
+      let dates = this.userSleepData
         .slice(index - 6, index + 1)
         .map((userEntry) => userEntry.date);
-      let sleepValue = this.userSleep
+      let sleepValue = this.userSleepData
         .slice(index - 6, index + 1)
         .map((userEntry) => userEntry[property]);
       return { date: dates, [key]: sleepValue };
