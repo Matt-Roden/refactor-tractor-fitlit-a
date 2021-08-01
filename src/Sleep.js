@@ -1,20 +1,48 @@
-class Sleep {
-  constructor(sleepData) {
+import Utility from './src/utils';
+class Sleep extends Utility {
+  constructor(sleepData, id) {
+    super();
     this.sleepData = sleepData;
-  }
-
-  getSleepDataByID(id) {
-    this.sleepData
-      .filter((entry) => entry.id === id)
+    this.userID = id;
+    this.userSleepData = this.sleepData
+      .filter((entry) => entry.userID === this.userID)
       .sort((a, b) => (a.date > b.date ? 1 : -1));
   }
 
-  calculateAverageSleepQuality() {
-    let totalSleepQuality = this.users.reduce((sum, user) => {
-      sum += user.sleepQualityAverage;
-      return sum;
-    }, 0);
-    return totalSleepQuality / this.users.length;
+  calculateAverage(data, property) {
+    return Math.round(
+      this[data].reduce((sum, data) => {
+        return (sum += data[property]);
+      }, 0) / this.userSleepData.length
+    );
+  }
+
+  getSleepByDate(date, property) {
+    return this.userSleepData.find((userEntry) => userEntry.date === date)[
+      property
+    ];
+  }
+
+  getUserSleepByWeek(date, property, key) {
+    const target = this.userSleep.find((userEntry) => userEntry.date === date);
+    const index = this.userSleep.indexOf(target);
+    if (index < 7) {
+      let dates = this.userSleep
+        .slice(0, index + 1)
+        .map((userEntry) => userEntry.date);
+      let sleepValue = this.userSleep
+        .slice(0, index + 1)
+        .map((userEntry) => userEntry[property]);
+      return { date: dates, [key]: sleepValue };
+    } else {
+      let dates = this.userSleep
+        .slice(index - 6, index + 1)
+        .map((userEntry) => userEntry.date);
+      let sleepValue = this.userSleep
+        .slice(index - 6, index + 1)
+        .map((userEntry) => userEntry[property]);
+      return { date: dates, [key]: sleepValue };
+    }
   }
 
   findBestSleepers(date) {
@@ -22,6 +50,7 @@ class Sleep {
       return user.calculateAverageQualityThisWeek(date) > 3;
     });
   }
+
   getLongestSleepers(date) {
     return sleepData
       .filter((sleep) => {
@@ -31,6 +60,7 @@ class Sleep {
         return b.hoursSlept - a.hoursSlept;
       })[0].userID;
   }
+
   getWorstSleepers(date) {
     return sleepData
       .filter((sleep) => {
@@ -40,65 +70,91 @@ class Sleep {
         return a.hoursSlept - b.hoursSlept;
       })[0].userID;
   }
-
-  updateSleep(date, hours, quality) {
-    this.sleepHoursRecord.unshift({
-      date: date,
-      hours: hours,
-    });
-    this.sleepQualityRecord.unshift({
-      date: date,
-      quality: quality,
-    });
-    if (this.sleepHoursRecord.length) {
-      this.hoursSleptAverage = (
-        (hours + this.hoursSleptAverage * (this.sleepHoursRecord.length - 1)) /
-        this.sleepHoursRecord.length
-      ).toFixed(1);
-    } else {
-      this.hoursSleptAverage = hours;
-    }
-    if (this.sleepQualityRecord.length) {
-      this.sleepQualityAverage = (
-        (quality +
-          this.sleepQualityAverage * (this.sleepQualityRecord.length - 1)) /
-        this.sleepQualityRecord.length
-      ).toFixed(1);
-    } else {
-      this.sleepQualityAverage = quality;
-    }
-  }
-  calculateAverageHoursThisWeek(todayDate) {
-    return (
-      this.sleepHoursRecord.reduce((sum, sleepAct) => {
-        let index = this.sleepHoursRecord.indexOf(
-          this.sleepHoursRecord.find((sleep) => sleep.date === todayDate)
-        );
-        if (
-          index <= this.sleepHoursRecord.indexOf(sleepAct) &&
-          this.sleepHoursRecord.indexOf(sleepAct) <= index + 6
-        ) {
-          sum += sleepAct.hours;
-        }
-        return sum;
-      }, 0) / 7
-    ).toFixed(1);
-  }
-  calculateAverageQualityThisWeek(todayDate) {
-    return (
-      this.sleepQualityRecord.reduce((sum, sleepAct) => {
-        let index = this.sleepQualityRecord.indexOf(
-          this.sleepQualityRecord.find((sleep) => sleep.date === todayDate)
-        );
-        if (
-          index <= this.sleepQualityRecord.indexOf(sleepAct) &&
-          this.sleepQualityRecord.indexOf(sleepAct) <= index + 6
-        ) {
-          sum += sleepAct.quality;
-        }
-        return sum;
-      }, 0) / 7
-    ).toFixed(1);
-  }
 }
 export default Sleep;
+
+// **********************UNUSED FUNCTIONS********************************
+// updateSleep(date, hours, quality) {
+//   this.sleepHoursRecord.unshift({
+//     date: date,
+//     hours: hours,
+//   });
+//   this.sleepQualityRecord.unshift({
+//     date: date,
+//     quality: quality,
+//   });
+//   if (this.sleepHoursRecord.length) {
+//     this.hoursSleptAverage = (
+//       (hours + this.hoursSleptAverage * (this.sleepHoursRecord.length - 1)) /
+//       this.sleepHoursRecord.length
+//     ).toFixed(1);
+//   } else {
+//     this.hoursSleptAverage = hours;
+//   }
+//   if (this.sleepQualityRecord.length) {
+//     this.sleepQualityAverage = (
+//       (quality +
+//         this.sleepQualityAverage * (this.sleepQualityRecord.length - 1)) /
+//       this.sleepQualityRecord.length
+//     ).toFixed(1);
+//   } else {
+//     this.sleepQualityAverage = quality;
+//   }
+// }
+
+// calculateAverageHoursThisWeek(todayDate) {
+//   return (
+//     this.sleepHoursRecord.reduce((sum, sleepAct) => {
+//       let index = this.sleepHoursRecord.indexOf(
+//         this.sleepHoursRecord.find((sleep) => sleep.date === todayDate)
+//       );
+//       if (
+//         index <= this.sleepHoursRecord.indexOf(sleepAct) &&
+//         this.sleepHoursRecord.indexOf(sleepAct) <= index + 6
+//       ) {
+//         sum += sleepAct.hours;
+//       }
+//       return sum;
+//     }, 0) / 7
+//   ).toFixed(1);
+// }
+// calculateAverageQualityThisWeek(todayDate) {
+//   return (
+//     this.sleepQualityRecord.reduce((sum, sleepAct) => {
+//       let index = this.sleepQualityRecord.indexOf(
+//         this.sleepQualityRecord.find((sleep) => sleep.date === todayDate)
+//       );
+//       if (
+//         index <= this.sleepQualityRecord.indexOf(sleepAct) &&
+//         this.sleepQualityRecord.indexOf(sleepAct) <= index + 6
+//       ) {
+//         sum += sleepAct.quality;
+//       }
+//       return sum;
+//     }, 0) / 7
+//   ).toFixed(1);
+// }
+// }
+
+// getUserQualityByWeek(date) {
+//   const target = this.userSleep.find((userEntry) => userEntry.date === date);
+//   const index = this.userSleep.indexOf(target);
+//   if (index < 7) {
+//     let dates = this.userSleep
+//       .slice(0, index + 1)
+//       .map((userEntry) => userEntry.date);
+//     let sleepQuality = this.userSleep
+//       .slice(0, index + 1)
+//       .map((userEntry) => userEntry.sleepQuality);
+//     return { date: dates, quality: sleepQuality };
+//   } else {
+//     let dates = this.userSleep
+//       .slice(index - 6, index + 1)
+//       .map((userEntry) => userEntry.date);
+//     let sleepQuality = this.userSleep
+//       .slice(index - 6, index + 1)
+//       .map((userEntry) => userEntry.sleepQuality);
+//     return { date: dates, quality: sleepQuality };
+//   }
+// }
+// }
