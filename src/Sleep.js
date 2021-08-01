@@ -1,7 +1,5 @@
-import Utility from './src/utils';
-class Sleep extends Utility {
+class Sleep {
   constructor(sleepData, id) {
-    super();
     this.sleepData = sleepData;
     this.userID = id;
     this.userSleepData = this.sleepData
@@ -11,9 +9,9 @@ class Sleep extends Utility {
 
   calculateAverage(data, property) {
     return Math.round(
-      this[data].reduce((sum, data) => {
-        return (sum += data[property]);
-      }, 0) / this.userSleepData.length
+      data.reduce((sum, dataEntry) => {
+        return (sum += dataEntry[property]);
+      }, 0) / data.length
     );
   }
 

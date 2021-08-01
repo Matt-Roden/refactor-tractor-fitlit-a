@@ -4,7 +4,7 @@ import Sleep from '../src/Sleep';
 import sleepData from '../src/data/sleep';
 import singleUserSleepData from '../src/data/single-user-sleep-test-data';
 
-describe.only('Sleep', () => {
+describe('Sleep', () => {
   let sleep, userID;
 
   beforeEach(() => {
@@ -21,19 +21,23 @@ describe.only('Sleep', () => {
   });
 
   it("should hold all user's sleep data", () => {
-    expect(sleep.sleepData).to.equal(sleepData);
+    expect(sleep.sleepData).to.deep.equal(sleepData);
   });
 
   it("should hold a single user's data", () => {
-    expect(sleep.userSleepData).to.equal([]);
+    expect(sleep.userSleepData).to.deep.equal(singleUserSleepData);
   });
 
   it('should be able to calculate average hours slept for a user', () => {
-    expect(sleep.calculateAverage('hoursSlept')).to.equal();
+    expect(sleep.calculateAverage(sleep.userSleepData, 'hoursSlept')).to.equal(
+      8
+    );
   });
 
-  it('should be able to calculate average quality of sleep for a user', () => {
-    expect(sleep.calculateAverage('sleepQuality')).to.equal();
+  it.only('should be able to calculate average quality of sleep for a user', () => {
+    expect(
+      sleep.calculateAverage(sleep.userSleepData, 'sleepQuality')
+    ).to.equal(3);
   });
 
   it("should be able to get a user's sleep quality by date", () => {
