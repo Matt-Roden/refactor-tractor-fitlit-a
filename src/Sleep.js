@@ -44,32 +44,6 @@ class Sleep {
       return { date: dates, [key]: sleepValue };
     }
   }
-
-  findBestSleepers(date) {
-    return this.users.filter((user) => {
-      return user.calculateAverageQualityThisWeek(date) > 3;
-    });
-  }
-
-  getLongestSleepers(date) {
-    return sleepData
-      .filter((sleep) => {
-        return sleep.date === date;
-      })
-      .sort((a, b) => {
-        return b.hoursSlept - a.hoursSlept;
-      })[0].userID;
-  }
-
-  getWorstSleepers(date) {
-    return sleepData
-      .filter((sleep) => {
-        return sleep.date === date;
-      })
-      .sort((a, b) => {
-        return a.hoursSlept - b.hoursSlept;
-      })[0].userID;
-  }
 }
 export default Sleep;
 
@@ -157,4 +131,29 @@ export default Sleep;
 //     return { date: dates, quality: sleepQuality };
 //   }
 // }
+// }
+// findBestSleepers(date) {
+//   return this.users.filter((user) => {
+//     return user.calculateAverageQualityThisWeek(date) > 3;
+//   });
+// }
+
+// getLongestSleepers(date) {
+//   return sleepData
+//     .filter((sleep) => {
+//       return sleep.date === date;
+//     })
+//     .sort((a, b) => {
+//       return b.hoursSlept - a.hoursSlept;
+//     })[0].userID;
+// }
+
+// getWorstSleepers(date) {
+//   return sleepData
+//     .filter((sleep) => {
+//       return sleep.date === date;
+//     })
+//     .sort((a, b) => {
+//       return a.hoursSlept - b.hoursSlept;
+//     })[0].userID;
 // }

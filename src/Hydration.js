@@ -9,14 +9,14 @@ class Hydration {
 
   getUserAvgOz() {
     return Math.round(
-      this.hydrationData.reduce((totalOunces, userEntry) => {
+      this.userHydrationData.reduce((totalOunces, userEntry) => {
         return (totalOunces += userEntry.numOunces);
-      }, 0) / this.userHydration.length
+      }, 0) / this.userHydrationData.length
     );
   }
 
   getUserOzByDate(date) {
-    return this.userHydration.find((userEntry) => userEntry.date === date)
+    return this.hydrationData.find((userEntry) => userEntry.date === date)
       .numOunces;
   }
 
