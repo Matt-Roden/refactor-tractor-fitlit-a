@@ -2,9 +2,8 @@ import { expect } from 'chai';
 
 import UserRepository from '../src/UserRepository';
 import User from '../src/User';
-import Sleep from '../src/Sleep';
 
-describe('UserRepository', function() {
+describe('UserRepository', () => {
   let users;
   let userRepository;
   beforeEach(() => {
@@ -148,20 +147,20 @@ describe('UserRepository', function() {
     ];
     userRepository = new UserRepository(users);
   })
-  it('should be a function', function() {
+  it('should be a function', () => {
     expect(UserRepository).to.be.a('function');
   });
-  it('should be an instance of user repository', function() {
+  it('should be an instance of user repository', () => {
     expect(userRepository).to.be.an.instanceof(UserRepository);
   });
-  it('should hold an array of users', function() {
+  it('should hold an array of users', () => {
     expect(userRepository.users).to.deep.equal(users);
     expect(userRepository.users.length).to.equal(10);
   });
   
-  it('getUser should return user object when given a random ID', function() {
+  it('getUser should return user object by id', () => {
+    const user = userRepository.getUser(6)
 
- const user = userRepository.getUser(6)
     expect(user).to.deep.equal({
       "id": 6,
       "name": "Jerrold Bogisich",
@@ -176,7 +175,7 @@ describe('UserRepository', function() {
       ]
     });
   })
-  it('calculateAverageStepGoal should return average step goal for all users', function() {
+  it('calculateAverageStepGoal should return average step goal for all users', () => {
     expect(userRepository.calculateAverageStepGoal()).to.equal(6200);
   })
 });
