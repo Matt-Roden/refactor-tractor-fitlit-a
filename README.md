@@ -37,6 +37,10 @@
 
 ![Pic1](https://res.cloudinary.com/yoroden/image/upload/v1627945700/Screen_Shot_2021-08-02_at_5.03.40_PM_hubpb2.png)
 
+![pic2](https://res.cloudinary.com/yoroden/image/upload/v1627945700/Screen_Shot_2021-08-02_at_5.04.07_PM_hkcxew.png)
+
+![pic3](https://res.cloudinary.com/yoroden/image/upload/v1627945700/Screen_Shot_2021-08-02_at_5.04.29_PM_nsb9xn.png)
+
 ## Future Iterations
 
 - Display all info for every card.
