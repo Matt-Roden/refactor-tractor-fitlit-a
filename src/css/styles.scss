@@ -1,4 +1,9 @@
-$main-margins: 0 10% 0 10%;
+$font-size1: 2vw;
+$letter-spacing1: .2vw;
+$small-margin1: .5vw;
+$main-font: 'Oswald', sans-serif;;
+$secondary-font: 'Work Sans', sans-serif;
+
 
 *,
 *:after,
@@ -10,7 +15,7 @@ padding: 0;
 
 body {
   background-color: #1F1F1F;
-  font-family: 'Oswald', sans-serif;
+  font-family: $main-font;
 }
 
 /* HEADER */
@@ -32,7 +37,7 @@ button:active {
   display: inline;
   float: right;
   height: 5.6vw;
-  margin-right: .5vw;
+  margin-right: $small-margin1;
   margin-top: 1.6vw;
   width: 5.6vw;
 }
@@ -71,7 +76,7 @@ h2 {
 
 h3 {
   display: inline;
-  font-family: 'Work Sans', sans-serif;
+  font-family:$secondary-font;
   font-size: 3vw;
   font-weight: 700;
   letter-spacing: .2em;
@@ -88,12 +93,12 @@ h5 {
 }
 
 p {
-  font-family: 'Work Sans', sans-serif;
+  font-family: $secondary-font;
   font-size: 1.2vw;
   font-weight: 600;
-  letter-spacing: .2vw;
+  letter-spacing: $letter-spacing1;
   margin-right: 1vw;
-  padding-top: 2vw;
+  padding-top: $font-size1;
   text-align: right;
   width: 9vw;
   word-break: keep-all;
@@ -106,7 +111,7 @@ main {
   'hydration'
   'sleep'
   'steps'
-  'stairs' ;
+  'stairs';
   height: 100vh;
 }
 
@@ -114,7 +119,7 @@ main {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 250px;
+  height: 100%;
   justify-content: center;
 }
 
@@ -131,9 +136,12 @@ main {
 }
 
 #steps-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #F5634B;
   grid-area: steps;
-  margin: .5vw;
+  margin: $small-margin1;
 }
 
 #hydration-card-container {
@@ -142,7 +150,7 @@ main {
   align-items: center;
   background-color: #54C6BE;
   grid-area: hydration;
-  margin: .5vw;
+  margin: $small-margin1;
 }
 
 #stairs-card-container {
@@ -151,7 +159,7 @@ main {
   align-items: center;
   background-color: #8975B2;
   grid-area: stairs;
-  margin: .5vw;
+  margin: $small-margin1;
 }
 
 #sleep-card-container {
@@ -160,13 +168,13 @@ main {
   align-items: center;
   background-color: #FBD089;
   grid-area: sleep;
-  margin: .5vw;
+  margin: $small-margin1;
 }
 
 .card-data-line {
   display: flex;
   justify-content: center;
-  margin-bottom: 2vw;
+  margin-bottom: $font-size1;
 }
 
 .hydration-weekly-label {
@@ -181,7 +189,7 @@ main {
 .hydration-data-line {
   display: flex;
   justify-content: center;
-  margin-bottom: .2vw;
+  margin-bottom: $letter-spacing1;
 }
 
 .trend-line {
