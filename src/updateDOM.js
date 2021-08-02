@@ -20,14 +20,6 @@ function showDropdown() {
 // <<<<<<<<<<<<<<<<<<<<<<<< USER DATA DISPLAY >>>>>>>>>>>>>>>>>>>>>>>
 
 const displayUserData = () => {
-  user.getFirstName();
-  console.log(user.getFirstName());
-  // let dropdownEmail = document.querySelector('#dropdown-email');
-  // userInfoDropdown = document.querySelector('#user-info-dropdown');
-  // let dropdownGoal = document.querySelector('#dropdown-goal');
-  // let dropdownName = document.querySelector('#dropdown-name');
-  // let headerName = document.querySelector('#header-name');
-
   document.querySelector(
     '#header-name'
   ).innerText = `${user.getFirstName()}'S `;
