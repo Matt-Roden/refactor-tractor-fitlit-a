@@ -47,6 +47,10 @@ getAllData()
     user = new User(userRepository.getUser(randomID));
     hydration = new Hydration(data[1].hydrationData);
     sleep = new Sleep(data[2].sleepData);
-    activity = new Activity(data[3].activityData);
+    activity = new Activity(
+      userRepository.users,
+      randomID,
+      data[3].activityData
+    );
   })
   .then(displayAllData);
