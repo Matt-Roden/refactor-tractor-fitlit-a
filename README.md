@@ -31,6 +31,7 @@
 - Using Promis.all to handle ofetch requests.
 - Moving all DOM mainpulation to an updateDOM file.
 - Achieving a 97% score on the Lighthouse accessability test.
+- Implementing `chart.js`
 - Implementing Sass variables.
 
 ![inheritance](https://res.cloudinary.com/yoroden/image/upload/v1627945700/Screen_Shot_2021-08-02_at_5.07.26_PM_gmnvva.png)
