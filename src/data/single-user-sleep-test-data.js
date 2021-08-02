@@ -1,5 +1,3 @@
-import singleUserHydrationTestData from './single-user-hydration-data';
-
 const singleUserSleepData = [
   { userID: 1, date: '2019/06/15', hoursSlept: 6.1, sleepQuality: 2.2 },
   { userID: 1, date: '2019/06/16', hoursSlept: 4.1, sleepQuality: 3.8 },
