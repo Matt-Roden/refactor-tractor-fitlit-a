@@ -6,12 +6,13 @@ import Sleep from './Sleep';
 import { user, userRepository, hydration, sleep, activity } from './scripts.js';
 import getAllData from './apiCalls';
 
-// let userInfoDropdown;
 let todayDate = '2019/09/22';
 let mainPage = document.querySelector('main');
 let profileButton = document.querySelector('#profile-button');
+
 const displayAllData = () => {
   displayUserData();
+  displayHydrationData();
 };
 
 function showDropdown() {
@@ -25,9 +26,22 @@ const displayUserData = () => {
   ).innerText = `${user.getFirstName()}'S `;
   document.querySelector('#dropdown-email').innerText = `EMAIL | ${user.email}`;
   document.querySelector('#dropdown-name').innerText = user.name.toUpperCase();
+  document.querySelector('#dropdown-name').innerText = user.name.toUpperCase();
+  document.querySelector(
+    '#dropdown-stride'
+  ).innerText = `Stride Length | ${user.strideLength}`;
   document.querySelector(
     '#dropdown-goal'
   ).innerText = `DAILY STEP GOAL | ${user.dailyStepGoal}`;
+
+  let ids = user.friends.map((id) => {
+    let currentFriend = new User(userRepository.getUser(id));
+    return currentFriend.getFirstName();
+  });
+
+  document.getElementById('dropdown-friends').innerText = ids.map(
+    (friend) => `${friend}`
+  );
 };
 
 // <<<<<<<<<<<<<<<<<<<<<<<< HYDRATION DATA DISPLAY >>>>>>>>>>>>>>>>>>>>>>>
