@@ -33,6 +33,10 @@
 - Achieving a 97% score on the Lighthouse accessability test.
 - Implementing Sass variables.
 
+## Responsiveness
+
+![Pic1](https://res.cloudinary.com/yoroden/image/upload/v1627945700/Screen_Shot_2021-08-02_at_5.03.40_PM_hubpb2.png)
+
 ## Future Iterations
 
 - Display all info for every card.
