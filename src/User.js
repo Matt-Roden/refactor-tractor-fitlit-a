@@ -9,7 +9,7 @@ class User {
   }
 
   getFirstName() {
-    return this.name.split(' ').toUpperCase;
+    return this.name.split(' ')[0];
   }
 }
 
