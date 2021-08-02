@@ -1,5 +1,3 @@
-import sleepData from './data/sleep';
-
 class UserRepository {
   constructor(userData) {
     this.users = userData;
@@ -20,11 +18,5 @@ class UserRepository {
     return total / this.users.length;
   }
 
-  findFriendsNames(userFriends) {
-    let friendsNames = [];
-    userFriends.forEach((id) => {
-      this.getUser(id)
-    })
-  }
-};
+}
 export default UserRepository;

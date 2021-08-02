@@ -10,8 +10,7 @@ class User {
   }
 
   getFirstName() {
-    const userName = this.name.split(' ');
-    return userName[0]
+    return this.name.split(' ').toUpperCase;
   }
 }
 

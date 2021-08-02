@@ -46,12 +46,12 @@ const displayHydrationData = () => {
     '#hydration-info-glasses-today'
   );
   let hydrationMainCard = document.querySelector('#hydration-main-card');
-  let hydrationUserOuncesToday = document.querySelector(
-    '#hydration-user-ounces-today'
+  // let hydrationUserOuncesToday = document.querySelector(
+  //   '#hydration-user-ounces-today'
   );
-  hydrationUserOuncesToday.innerText = hydrationData.find((hydration) => {
-    return hydration.userID === user.id && hydration.date === todayDate;
-  }).numOunces;
+  document.querySelector(
+    '#hydration-user-ounces-today'
+  ).innerText = getUserOzByDate(date);
 
   hydrationFriendOuncesToday.innerText =
     userRepository.calculateAverageDailyWater(todayDate);
