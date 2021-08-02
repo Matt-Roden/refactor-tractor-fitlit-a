@@ -35,6 +35,7 @@
 
 ## Future Iterations
 
+- Display all info for every card.
 - Add login screen in order to eliminate the random index value function when instantiating a current User.
 - Restructure HTML to gain more control of card sections and styling.
 - Implement POST request, allowing for a user to sign up.
