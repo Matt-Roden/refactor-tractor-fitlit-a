@@ -29,7 +29,7 @@ describe('Hydration', () => {
     );
   });
 
-  it('should be able to return a users ounces by date', () => {
+  it.only('should be able to return a users ounces by date', () => {
     expect(hydration.getUserOzByDate('2019/08/28')).to.equal(37);
   });
 

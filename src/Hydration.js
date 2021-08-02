@@ -16,7 +16,7 @@ class Hydration {
   }
 
   getUserOzByDate(date) {
-    return this.hydrationData.find((userEntry) => userEntry.date === date)
+    return this.userHydrationData.find((userEntry) => userEntry.date === date)
       .numOunces;
   }
 
