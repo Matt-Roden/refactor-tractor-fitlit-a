@@ -1,4 +1,4 @@
-$
+$main-margins: 0 10% 0 10%;
 
 *,
 *:after,
@@ -107,14 +107,14 @@ main {
   'sleep'
   'steps'
   'stairs' ;
-  height: 100%;
+  height: 100vh;
 }
 
 .main-card {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 20vw;
+  height: 250px;
   justify-content: center;
 }
 
@@ -137,18 +137,27 @@ main {
 }
 
 #hydration-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #54C6BE;
   grid-area: hydration;
   margin: .5vw;
 }
 
 #stairs-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #8975B2;
   grid-area: stairs;
   margin: .5vw;
 }
 
 #sleep-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #FBD089;
   grid-area: sleep;
   margin: .5vw;
