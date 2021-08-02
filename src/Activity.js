@@ -5,7 +5,6 @@ class Activity extends UserRepository {
     super(userData);
     this.id = id;
     this.activityData = activityData;
-
     this.userActivityData = this.activityData.filter(
       (aUser) => aUser.userID === id
     );
