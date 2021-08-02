@@ -1,10 +1,5 @@
-import UserRepository from './UserRepository';
 import User from './User';
-import Activity from './Activity';
-import Hydration from './Hydration';
-import Sleep from './Sleep';
 import { user, userRepository, hydration, sleep, activity } from './scripts.js';
-import getAllData from './apiCalls';
 import Chart from 'chart.js/auto';
 
 let todayDate = '2019/09/22';
@@ -105,6 +100,7 @@ function showInfo() {
 function showDropdown() {
   document.querySelector('#user-info-dropdown').classList.toggle('hide');
 }
+
 // <<<<<<<<<<<<<<<<<<<<<<<< USER DATA DISPLAY >>>>>>>>>>>>>>>>>>>>>>>
 
 const displayUserData = () => {
@@ -136,9 +132,6 @@ const displayUserData = () => {
 const displayHydrationData = () => {
   document.querySelector('#hydration-user-ounces-today').innerText =
     hydration.getUserOzByDate(todayDate);
-
-  // hydrationFriendOuncesToday.innerText =
-  //   userRepository.calculateAverageDailyWater(todayDate);
 
   document.querySelector('#hydration-info-glasses-today').innerText = (
     hydration.getUserOzByDate(todayDate) / 8
@@ -349,22 +342,9 @@ const displayActivityData = () => {
   displayStepData();
   displayStairsData();
 };
-// <<<<<<<<<<<<<<<<<I DON'T KNOW WHAT'S GOING ON WITH THESE YET>>>>>>>>>>>>>>>>
 
 // <<<<<<<<<<<<<<<<<<<<<<<< EVENT LISTENERS >>>>>>>>>>>>>>>>>>>>>>>
 mainPage.addEventListener('click', showInfo);
 profileButton.addEventListener('click', showDropdown);
-// stairsTrendingButton.addEventListener('click', updateTrendingStairsDays());
-// stepsTrendingButton.addEventListener('click', updateTrendingStepDays());
-
-// function updateTrendingStairsDays() {
-//   user.findTrendingStairsDays();
-//   trendingStairsPhraseContainer.innerHTML = `<p class='trend-line'>${user.trendingStairsDays[0]}</p>`;
-// }
-
-// function updateTrendingStepDays() {
-//   user.findTrendingStepDays();
-//   trendingStepsPhraseContainer.innerHTML = `<p class='trend-line'>${user.trendingStepDays[0]}</p>`;
-// }
 
 export default displayAllData;

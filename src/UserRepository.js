@@ -4,7 +4,7 @@ class UserRepository {
   }
 
   getUser(id) {
-    return this.users.find((user) => id === user.id) 
+    return this.users.find((user) => id === user.id);
   }
 
   calculateAverageStepGoal() {
@@ -17,12 +17,5 @@ class UserRepository {
     }, 0);
     return total / this.users.length;
   }
-
-  findFriendsNames(userFriends) {
-    let friendsNames = [];
-    userFriends.forEach((id) => {
-      this.getUser(id)
-    })
-  }
-};
+}
 export default UserRepository;
