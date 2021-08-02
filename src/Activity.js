@@ -30,15 +30,27 @@ class Activity extends UserRepository {
     );
   }
 
-  getMinutesActiveByDate(date) {
+  getActivityByDate(date, property) {
     return this.userActivityData.find((data) => data.date === date)
-      .minutesActive;
+      [property];
   } //New
 
-  findAllExceededStepGoalDays(id, user) {
-    return this.activityData
+  compareStepGoal(date, id) {
+    const steps = this.userActivityData.find((data) => data.date === date).numSteps;
+    const stepGoal = this.getUser(id).dailyStepGoal;
+    if(steps > stepGoal) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
+  findAllExceededStepGoalDays(id) {
+    const stepGoal = this.getUser(id).dailyStepGoal
+    return this.userActivityData
       .filter(
-        (data) => id === data.userID && data.numSteps > user.dailyStepGoal
+        (data) => data.numSteps > stepGoal
       )
       .map((data) => data.date);
   }

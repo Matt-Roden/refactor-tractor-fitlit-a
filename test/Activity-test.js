@@ -13,11 +13,11 @@ describe('Activity', function () {
     activity = new Activity(userData, userID, activityData);
   });
 
-  it('should be a function', function () {
+  it('should be a function', () => {
     expect(Activity).to.be.a('function');
   });
 
-  it('should be an instance of activity', function () {
+  it('should be an instance of activity', () => {
     expect(activity).to.be.an.instanceof(Activity);
   });
 
@@ -72,7 +72,7 @@ describe('Activity', function () {
   });
 
   it('should return the number of minutes a given user was active on a given date', () => {
-    expect(activity.getMinutesActiveByDate('2019/06/15')).to.equal(140);
+    expect(activity.getActivityByDate('2019/06/15', 'minutesActive')).to.equal(140);
   });
 
   it('should return the average minutes active for any given week', () => {
@@ -80,20 +80,27 @@ describe('Activity', function () {
   });
 
   it('should find all the days a user exceeded their daily step goal', () => {
-    expect(activity.findAllExceededStepGoalDays(2, user2)).to.deep.equal([
-      '2019/06/15',
-      '2019/06/16',
+    expect(activity.findAllExceededStepGoalDays(userID)).to.deep.equal([
+      '2019/06/17', '2019/06/20', '2019/06/22',
+      '2019/06/23', '2019/06/28', '2019/06/30',
+      '2019/07/05', '2019/07/07', '2019/07/08',
+      '2019/07/09', '2019/07/14', '2019/07/20',
+      '2019/07/21', '2019/07/22', '2019/07/26',
+      '2019/07/31', '2019/08/01', '2019/08/08',
+      '2019/08/10', '2019/08/15', '2019/08/17',
+      '2019/08/24', '2019/08/25', '2019/08/29',
+      '2019/09/05', '2019/09/07', '2019/09/09',
+      '2019/09/11', '2019/09/12', '2019/09/15',
+      '2019/09/16', '2019/09/19', '2019/09/20'
     ]);
   });
 
-  describe('compareStepGoal', function () {
-    it("should return false if goal isn't met", function () {
-      activity1.compareStepGoal(userRepository);
-      expect(activity1.reachedStepGoal).to.equal(false);
+  describe('compareStepGoal', () => {
+    it("should return true if goal is met", () => {
+      expect(activity.compareStepGoal('2019/09/19', userID)).to.equal(true);
     });
-    it('should return true if goal is met', function () {
-      activity2.compareStepGoal(userRepository);
-      expect(activity2.reachedStepGoal).to.equal(true);
+    it('should return false if goal is not met', () => {
+      expect(activity.compareStepGoal('2019/09/21', userID)).to.equal(false);
     });
   });
 });
