@@ -33,6 +33,10 @@
 - Achieving a 97% score on the Lighthouse accessability test.
 - Implementing Sass variables.
 
+![inheritance](https://res.cloudinary.com/yoroden/image/upload/v1627945700/Screen_Shot_2021-08-02_at_5.07.26_PM_gmnvva.png)
+
+![promisedotall](https://res.cloudinary.com/yoroden/image/upload/v1627945700/Screen_Shot_2021-08-02_at_5.06.49_PM_dwb2qo.png)
+
 ## Responsiveness
 
 ![Pic1](https://res.cloudinary.com/yoroden/image/upload/v1627945700/Screen_Shot_2021-08-02_at_5.03.40_PM_hubpb2.png)
