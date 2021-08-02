@@ -2,9 +2,9 @@
 
 ### Contributors: 
 
-[Lindsay Schnell](https://github.com/lschnell8)
-[Justin Anthony](https://github.com/justincanthony)
-[Matt Roden](https://github.com/Matt-Roden)
+- [Lindsay Schnell](https://github.com/lschnell8)
+- [Justin Anthony](https://github.com/justincanthony)
+- [Matt Roden](https://github.com/Matt-Roden)
 
 ## Objectives
 
