@@ -5,54 +5,148 @@ import User from '../src/User';
 import Sleep from '../src/Sleep';
 
 describe('UserRepository', function() {
-  let user1;
-  let user2;
-  let user3;
+  let users;
   let userRepository;
   beforeEach(() => {
-    user1 = new User({
-      'id': 1,
-      'name': 'Luisa Hane',
-      'address': '15195 Nakia Tunnel, Erdmanport VA 19901-1697',
-      'email': 'Diana.Hayes1@hotmail.com',
-      'strideLength': 4.3,
-      'dailyStepGoal': 10000,
-      'friends': [
-        16,
-        4,
-        8
-      ]
-    })
-    user2 = new User({
-      "id": 2,
-      "name": "Jarvis Considine",
-      "address": "30086 Kathryn Port, Ciceroland NE 07273",
-      "email": "Dimitri.Bechtelar11@gmail.com",
-      "strideLength": 4.5,
-      "dailyStepGoal": 5000,
-      "friends": [
-        9,
-        18,
-        24,
-        19
-      ]
-    })
-    user3 = new User({
-      "id": 3,
-      "name": "Herminia Witting",
-      "address": "85823 Bosco Fork, East Oscarstad MI 85126-5660",
-      "email": "Elwin.Tromp@yahoo.com",
-      "strideLength": 4.4,
-      "dailyStepGoal": 15000,
-      "friends": [
-        19,
-        11,
-        42,
-        33
-      ]
-    })
-    userRepository = new UserRepository();
-    userRepository.users.push(user1, user2, user3);
+    users = [
+      {
+        "id": 1,
+        "name": "Luisa Hane",
+        "address": "15195 Nakia Tunnel, Erdmanport VA 19901-1697",
+        "email": "Diana.Hayes1@hotmail.com",
+        "strideLength": 4.3,
+        "dailyStepGoal": 10000,
+        "friends": [
+          16,
+          4,
+          8
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Jarvis Considine",
+        "address": "30086 Kathryn Port, Ciceroland NE 07273",
+        "email": "Dimitri.Bechtelar11@gmail.com",
+        "strideLength": 4.5,
+        "dailyStepGoal": 5000,
+        "friends": [
+          9,
+          18,
+          24,
+          19
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Herminia Witting",
+        "address": "85823 Bosco Fork, East Oscarstad MI 85126-5660",
+        "email": "Elwin.Tromp@yahoo.com",
+        "strideLength": 4.4,
+        "dailyStepGoal": 5000,
+        "friends": [
+          19,
+          11,
+          42,
+          33
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Mae Connelly",
+        "address": "28926 Schinner Islands, Turnermouth NE 23720-3230",
+        "email": "Marcos_Pollich@hotmail.com",
+        "strideLength": 3.1,
+        "dailyStepGoal": 4000,
+        "friends": [
+          48,
+          7,
+          44,
+          8
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Erick Schaden",
+        "address": "514 Mayert Walk, Jordaneside SC 55023-6523",
+        "email": "Vanessa_Gerhold@gmail.com",
+        "strideLength": 3.1,
+        "dailyStepGoal": 8000,
+        "friends": [
+          13,
+          44,
+          49,
+          33,
+          10
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Jerrold Bogisich",
+        "address": "8283 Carroll Harbor, Borerfort CT 69020-3448",
+        "email": "Mercedes_Zboncak53@yahoo.com",
+        "strideLength": 3.7,
+        "dailyStepGoal": 11000,
+        "friends": [
+          11,
+          48,
+          15
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Breanne Fay",
+        "address": "834 Retta Knoll, Stantonland MA 71627-4121",
+        "email": "Dashawn28@gmail.com",
+        "strideLength": 2.9,
+        "dailyStepGoal": 8000,
+        "friends": [
+          12,
+          27,
+          22,
+          30
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Laney Abshire",
+        "address": "86416 Koch Inlet, North Kaciefurt MA 80635",
+        "email": "Janice_Nitzsche2@yahoo.com",
+        "strideLength": 2.8,
+        "dailyStepGoal": 2000,
+        "friends": [
+          11,
+          41,
+          23,
+          49
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Myron Schmitt",
+        "address": "85251 Martina Fields, West Aletha MD 00163-5315",
+        "email": "Gerard_Langosh22@hotmail.com",
+        "strideLength": 3.8,
+        "dailyStepGoal": 6000,
+        "friends": [
+          16,
+          26,
+          17
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Roslyn Bernhard",
+        "address": "22859 Sean Meadow, Lake Dorthyfort MA 89560",
+        "email": "Hillary83@gmail.com",
+        "strideLength": 4.1,
+        "dailyStepGoal": 3000,
+        "friends": [
+          40,
+          33
+        ]
+      }
+    ];
+    userRepository = new UserRepository(users);
   })
   it('should be a function', function() {
     expect(UserRepository).to.be.a('function');
@@ -61,111 +155,28 @@ describe('UserRepository', function() {
     expect(userRepository).to.be.an.instanceof(UserRepository);
   });
   it('should hold an array of users', function() {
-    expect(userRepository.users).to.deep.equal([user1, user2, user3]);
-    expect(userRepository.users.length).to.equal(3);
+    expect(userRepository.users).to.deep.equal(users);
+    expect(userRepository.users.length).to.equal(10);
   });
-  it('getUser should return user object when given a user id', function() {
-    expect(userRepository.getUser(2)).to.equal(user2);
+  
+  it('getUser should return user object when given a random ID', function() {
+
+ const user = userRepository.getUser(6)
+    expect(user).to.deep.equal({
+      "id": 6,
+      "name": "Jerrold Bogisich",
+      "address": "8283 Carroll Harbor, Borerfort CT 69020-3448",
+      "email": "Mercedes_Zboncak53@yahoo.com",
+      "strideLength": 3.7,
+      "dailyStepGoal": 11000,
+      "friends": [
+        11,
+        48,
+        15
+      ]
+    });
   })
   it('calculateAverageStepGoal should return average step goal for all users', function() {
-    expect(userRepository.calculateAverageStepGoal()).to.equal(10000);
-  })
-  it('calculateAverageSleepQuality should return average sleep quality for all users', function() {
-    user1.sleepQualityAverage = 3.3;
-    user2.sleepQualityAverage = 5;
-    user3.sleepQualityAverage = 1;
-    expect(userRepository.calculateAverageSleepQuality()).to.equal(3.1);
-  });
-  it('should have a method that calculates friends average ounces of water', function() {
-    user1.ouncesRecord = [
-      {"2019/06/15": 1},
-      {"2019/06/15": 1},
-      {"2019/06/16": 5}
-    ]
-    user2.ouncesRecord = [
-      {"2019/06/15": 1},
-      {"2019/06/15": 1},
-      {"2019/06/16": 8}
-    ]
-    user3.ouncesRecord = [
-      {"2019/06/15": 1},
-      {"2019/06/15": 1},
-      {"2019/06/16": 4}
-    ]
-    expect(userRepository.calculateAverageDailyWater("2019/06/16")).to.equal(5)
-  });
-  it('should have a method that finds the best sleepers', function() {
-    sleep1 = new Sleep({
-      "userID": 1,
-      "date": "2019/06/16",
-      "hoursSlept": 6.1,
-      "sleepQuality": 1000
-    }, userRepository);
-    sleep2 = new Sleep({
-      "userID": 2,
-      "date": "2019/06/15",
-      "hoursSlept": 7.3,
-      "sleepQuality": 500
-    }, userRepository);
-    sleep3 = new Sleep({
-      "userID": 3,
-      "date": "2019/06/15",
-      "hoursSlept": 9.3,
-      "sleepQuality": 1.4
-    }, userRepository);
-    expect(userRepository.findBestSleepers("2019/06/16")).to.deep.equal([user1, user2]);
-  });
-  it('should have a method that finds the longest sleepers', function() {
-    sleepData = [{
-      "userID": 1,
-      "date": "2019/06/15",
-      "hoursSlept": 6.1,
-      "sleepQuality": 100
-    }, {
-      "userID": 2,
-      "date": "2019/06/15",
-      "hoursSlept": 7.3,
-      "sleepQuality": 1500
-    }, {
-      "userID": 3,
-      "date": "2019/06/15",
-      "hoursSlept": 9.3,
-      "sleepQuality": 1.4
-    }];
-    expect(userRepository.getLongestSleepers("2019/06/15")).to.equal(3);
-  });
-  it('should have a method that finds the worst sleepers', function() {
-    sleepData = [{
-      "userID": 1,
-      "date": "2019/06/15",
-      "hoursSlept": 6.1,
-      "sleepQuality": 1000
-    }, {
-      "userID": 2,
-      "date": "2019/06/15",
-      "hoursSlept": 7.3,
-      "sleepQuality": 500
-    }, {
-      "userID": 3,
-      "date": "2019/06/15",
-      "hoursSlept": 9.3,
-      "sleepQuality": 1.4
-    }];
-    expect(userRepository.getWorstSleepers("2019/06/15")).to.equal(1);
-  });
-  it('should have a method that calculates average number of stairs for users', function() {
-    user1.activityRecord = [{date: "2019/09/17", flightsOfStairs: 10}, {date: "2019/09/17", flightsOfStairs: 15}];
-    user2.activityRecord = [{date: "2019/09/16", flightsOfStairs: 8}, {date: "2019/09/17", flightsOfStairs: 4}];
-    expect(userRepository.calculateAverageStairs("2019/09/17")).to.equal(10);
-  })
-  it('should have a method that calculates average number of steps for users', function() {
-    user1.activityRecord = [{date: "2019/09/17", steps: 100}, {date: "2019/09/17", steps: 2000}];
-    user2.activityRecord = [{date: "2019/09/16", steps: 9820}, {date: "2019/09/17", steps: 234}];
-    expect(userRepository.calculateAverageSteps("2019/09/17")).to.equal(778);
-  })
-  it('should have a method that calculates average number of active minutes for users', function() {
-    user1.activityRecord = [{date: "2019/09/17", minutesActive: 100}, {date: "2019/09/17", minutesActive: 20}];
-    user2.activityRecord = [{date: "2019/09/16", minutesActive: 78}, {date: "2019/09/17", minutesActive: 12}];
-    expect(userRepository.calculateAverageMinutesActive("2019/09/17")).to.equal(44);
+    expect(userRepository.calculateAverageStepGoal()).to.equal(6200);
   })
 });
