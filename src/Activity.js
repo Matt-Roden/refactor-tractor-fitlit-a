@@ -1,10 +1,11 @@
-// import UserRepository from './UserRepository';
+import UserRepository from './UserRepository';
 
-class Activity /*extends UserRepository*/ {
-  constructor(/*userData,*/ activityData, id) {
-    // super(userData, id);
-    this.activityData = activityData;
+class Activity extends UserRepository {
+  constructor(userData, id, activityData) {
+    super(userData);
     this.id = id;
+    this.activityData = activityData;
+
     this.userActivityData = this.activityData.filter(
       (aUser) => aUser.userID === id
     );
@@ -19,18 +20,16 @@ class Activity /*extends UserRepository*/ {
     } else {
       return foundUser.slice(index - 6, index + 1);
     }
-  } //New
+  }
 
-  // calculateMiles(id, date, user) {
-  //   let walkingUser = this.activityData.find(
-  //     (data) => data.userID === id && data.date === date
-  //   );
-  //   return parseInt(
-  //     Math.round((walkingUser.numSteps * user.strideLength) / 5280).toFixed(
-  //       1
-  //     )
-  //   );
-  // } //New
+  calculateMiles(id, date, user) {
+    let walkingUser = this.activityData.find(
+      (data) => data.userID === id && data.date === date
+    );
+    return parseInt(
+      Math.round((walkingUser.numSteps * user.strideLength) / 5280).toFixed(1)
+    );
+  }
 
   getMinutesActiveByDate(date) {
     return this.userActivityData.find((data) => data.date === date)
