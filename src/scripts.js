@@ -1,47 +1,52 @@
 import './css/base.scss';
 import './css/styles.scss';
-import './updateDOM';
-import getData from './apiCalls';
 import UserRepository from './UserRepository';
 import User from './User';
 import Activity from './Activity';
 import Hydration from './Hydration';
 import Sleep from './Sleep';
-import {
-  displayUserData,
-  displayHydrationData,
-  displaySleepData,
-  displayActivityData,
-} from './updateDOM';
+import displayAllData from './updateDOM';
+import getAllData from './apiCalls';
+export { user, userRepository, hydration, sleep, activity };
 
-let todayDate = '2019/09/22';
+let user, userRepository, hydration, sleep, activity;
 
 // function to create random number for user
 const getRandomID = () => Math.floor(Math.random() * 50) + 1;
 
 let randomID = getRandomID();
 
-getData('users')
-  .then((data) => {
-    let userRepository = new UserRepository(data.userData);
-    let user = new User(userRepository.getUser(randomID));
-  })
-  .then(displayUserData);
+// getData('users')
+//   .then((data) => {
+//     let userRepository = new UserRepository(data.userData);
+//     let user = new User(userRepository.getUser(randomID));
+//   })
+//   .then(displayUserData);
 
-getData('hydration')
-  .then((data) => {
-    let hydration = new Hydration(data.hydrationData);
-  })
-  .then(displayHydrationData);
+// getData('hydration')
+//   .then((data) => {
+//     let hydration = new Hydration(data.hydrationData);
+//   })
+//   .then(displayHydrationData);
 
-getData('sleep')
-  .then((data) => {
-    let sleep = new Sleep(data.sleepData);
-  })
-  .then(displaySleepData);
+// getData('sleep')
+//   .then((data) => {
+//     let sleep = new Sleep(data.sleepData);
+//   })
+//   .then(displaySleepData);
 
-getData('activity')
+// getData('activity')
+//   .then((data) => {
+//     let activity = new Activity(data.activityData);
+//   })
+//   .then(displayActivityData);
+
+getAllData()
   .then((data) => {
-    let activity = new Activity(data.activityData);
+    userRepository = new UserRepository(data[0].userData);
+    user = new User(userRepository.getUser(randomID));
+    hydration = new Hydration(data[1].hydrationData);
+    sleep = new Sleep(data[2].sleepData);
+    activity = new Activity(data[3].activityData);
   })
-  .then(displayActivityData);
+  .then(displayAllData);
