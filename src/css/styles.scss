@@ -63,6 +63,7 @@ button:active {
 
 /* TEXT ELEMENTS */
 h1 {
+  margin-left: 70px;
   color: #fff;
   display: inline;
   font-size: 5.4vw;
@@ -111,7 +112,8 @@ main {
   'hydration'
   'sleep'
   'steps'
-  'stairs';
+  'stairs'
+  ;
   height: 100vh;
 }
 
