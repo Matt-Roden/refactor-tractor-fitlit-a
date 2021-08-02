@@ -1,3 +1,5 @@
+$
+
 *,
 *:after,
 *:before {
@@ -101,8 +103,10 @@ p {
 main {
   display: grid;
   grid-template-areas:
-  'steps hydration'
-  'stairs sleep';
+  'hydration'
+  'sleep'
+  'steps'
+  'stairs' ;
   height: 100%;
 }
 
