@@ -10,7 +10,7 @@
   <body>
     <header>
       <h1><span id='header-name'></span>FITLIT</h1>
-      <button type='button' role='button' id='profile-button'></button>
+      <button type='button' role='button' name='show-user-info-button' id='profile-button'></button>
       <section class='hide' id='user-info-dropdown'>
         <h5 id='dropdown-name'></h5>
         <p class='dropdown-p' id='dropdown-email'></p>
@@ -23,7 +23,7 @@
     <main>
 
       <!-- Steps Card Section -->
-      <section class='card-container' id='steps-card-container'>
+      <div class='card-container' id='steps-card-container'>
         <section class='main-card' id='steps-main-card'>
           <div class='main-card-top-row'>
             <button type='button' role='button' name='steps-info-button' class='info-button steps-info-button'></button>
@@ -79,10 +79,10 @@
             <h4 id='steps-calendar-total-steps-weekly'></h4>
           </div>
         </section>
-      </section>
+      </div>
 
       <!-- Hydration card section -->
-      <section class='card-container' id='hydration-card-container'>
+      <div class='card-container' id='hydration-card-container'>
         <section class='main-card' id='hydration-main-card'>
           <div class='main-card-top-row'>
             <button type='button' role='button' class='info-button hydration-info-button'></button>
@@ -115,10 +115,10 @@
             <canvas id="water-week"></canvas>
           </div>
         </section>
-      </section>
+      </div>
 
       <!-- Stairs Card Section -->
-      <section class='card-container' id='stairs-card-container'>
+      <div class='card-container' id='stairs-card-container'>
         <section class='main-card' id='stairs-main-card'>
           <div class='main-card-top-row'>
             <button type='button' role='button' class='info-button stairs-info-button'></button>
@@ -162,10 +162,10 @@
             <h4 id='stairs-calendar-stairs-average-weekly'></h4>
           </div>
         </section>
-      </section>
+      </div>
 
       <!-- Sleep Card Section -->
-      <section class='card-container' id='sleep-card-container'>
+      <div class='card-container' id='sleep-card-container'>
         <section class='main-card' id='sleep-main-card'>
           <div class='main-card-top-row'>
             <button type='button' role='button' class='info-button sleep-info-button'></button>
@@ -215,8 +215,8 @@
             <h4 id='sleep-calendar-quality-average-weekly'></h4>
           </div>
         </section>
-      </section>
-      
+      </div>
+
     </main>
     <script src="bundle.js"></script>
   </body>
