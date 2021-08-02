@@ -1,16 +1,16 @@
 import { expect } from 'chai';
 import singleUserActivityData from '../src/data/single-user-activity-test-data';
 import activityData from '../src/data/activity';
+import userData from '../src/data/users';
 import Activity from '../src/Activity';
-import UserRepository from '../src/UserRepository';
-import User from '../src/User';
 
 describe('Activity', function () {
-  let userRepo, activity, userID;
+  let activity, userID;
 
   beforeEach(() => {
     userID = 1;
-    activity = new Activity(activityData, userID);
+    // userRepo = new UserRepository(userData);
+    activity = new Activity(userData, userID, activityData);
   });
 
   it('should be a function', function () {
@@ -67,7 +67,7 @@ describe('Activity', function () {
 
   it("should calculate a user's mileage for a specific day", () => {
     expect(
-      activity.calculateMiles(1, '2019/06/15', userRepo.users[0])
+      activity.calculateMiles(userID, '2019/06/15', activity.getUser(userID))
     ).to.equal(3.0);
   });
 

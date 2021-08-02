@@ -29,11 +29,11 @@ describe('Hydration', () => {
     );
   });
 
-  it.only('should be able to return a users ounces by date', () => {
+  it('should be able to return a users ounces by date', () => {
     expect(hydration.getUserOzByDate('2019/08/28')).to.equal(37);
   });
 
-  it.only('should be able to return a users average ounces consumed all time', () => {
+  it('should be able to return a users average ounces consumed all time', () => {
     expect(hydration.getUserAvgOz()).to.equal(58);
   });
 

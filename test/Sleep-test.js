@@ -28,7 +28,7 @@ describe('Sleep', () => {
     expect(sleep.userSleepData).to.deep.equal(singleUserSleepData);
   });
 
-  it.only('should be able to calculate average hours slept for a user', () => {
+  it('should be able to calculate average hours slept for a user', () => {
     expect(sleep.calculateAverage(sleep.userSleepData, 'hoursSlept')).to.equal(
       8
     );
