@@ -38,6 +38,8 @@
 
 ![promisedotall](https://res.cloudinary.com/yoroden/image/upload/v1627945700/Screen_Shot_2021-08-02_at_5.06.49_PM_dwb2qo.png)
 
+![chart](https://res.cloudinary.com/yoroden/image/upload/v1627946244/Screen_Shot_2021-08-02_at_5.17.01_PM_hvoa56.png)
+
 ## Responsiveness
 
 ![Pic1](https://res.cloudinary.com/yoroden/image/upload/v1627945700/Screen_Shot_2021-08-02_at_5.03.40_PM_hubpb2.png)
