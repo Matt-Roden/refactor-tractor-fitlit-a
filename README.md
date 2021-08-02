@@ -15,6 +15,10 @@
 - Leverage Sass to DRY up your CSS
 - Incorporate Webpack to streamline your workflow process
 
+## Technology Stack
+
+`JavaScript` 
+
 ## Setup
 
 1. Clone the repo, change into the directory and install the project dependencies. Run `npm install` to install project dependencies.
