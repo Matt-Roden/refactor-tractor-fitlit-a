@@ -17,7 +17,7 @@
 
 ## Technology Stack
 
-`JavaScript` 
+`JavaScript` `HTML` `SCSS` `Mocha` `Chai` `WebPack` `Git` `GitHub` 
 
 ## Setup
 
