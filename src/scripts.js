@@ -45,8 +45,8 @@ getAllData()
   .then((data) => {
     userRepository = new UserRepository(data[0].userData);
     user = new User(userRepository.getUser(randomID));
-    hydration = new Hydration(data[1].hydrationData);
-    sleep = new Sleep(data[2].sleepData);
+    hydration = new Hydration(data[1].hydrationData, randomID);
+    sleep = new Sleep(data[2].sleepData, randomID);
     activity = new Activity(
       userRepository.users,
       randomID,
