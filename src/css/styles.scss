@@ -3,6 +3,12 @@ $letter-spacing1: .2vw;
 $small-margin1: .5vw;
 $main-font: 'Oswald', sans-serif;;
 $secondary-font: 'Work Sans', sans-serif;
+$three-point-four-vw: 3.4vw;
+$five-point-six-vw: 5.6vw;
+$one-vw: 1vw;
+$one-hundred-percent: 100%;
+$background-color: #1F1F1F;
+
 
 
 *,
@@ -14,7 +20,7 @@ padding: 0;
 }
 
 body {
-  background-color: #1F1F1F;
+  background-color: $background-color;
   font-family: $main-font;
 }
 
@@ -32,18 +38,18 @@ button:active {
 #profile-button {
   background-image: url(../images/profile.png);
   background-position: center;
-  background-size: 5.6vw;
+  background-size: $five-point-six-vw;
   border: none;
   display: inline;
   float: right;
-  height: 5.6vw;
+  height: $five-point-six-vw;
   margin-right: $small-margin1;
   margin-top: 1.6vw;
-  width: 5.6vw;
+  width: $five-point-six-vw;
 }
 
 #user-info-dropdown {
-  background-color: #1F1F1F;
+  background-color: $background-color;
   color: white;
   margin-left: 60%;
   margin-top: -1.2%;
@@ -55,10 +61,10 @@ button:active {
 .dropdown-p {
   font-size: 1.2vw;
   font-weight: 300;
-  padding-bottom: 1vw;
+  padding-bottom: $one-vw;
   padding-top: 0;
   text-align: center;
-  width: 100%;
+  width: $one-hundred-percent;
 }
 
 /* TEXT ELEMENTS */
@@ -89,7 +95,7 @@ h4 {
 
 h5 {
   font-size: 1.8vw;
-  padding-bottom: 1vw;
+  padding-bottom: $one-vw;
   text-align: center;
 }
 
@@ -98,7 +104,7 @@ p {
   font-size: 1.2vw;
   font-weight: 600;
   letter-spacing: $letter-spacing1;
-  margin-right: 1vw;
+  margin-right: $one-vw;
   padding-top: $font-size1;
   text-align: right;
   width: 9vw;
@@ -123,7 +129,7 @@ main {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: $one-hundred-percent;
   justify-content: center;
 }
 
@@ -131,12 +137,12 @@ main {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: $one-hundred-percent;
 }
 
 .main-card-bottom-row {
   text-align: center;
-  width: 100%;
+  width: $one-hundred-percent;
 }
 
 #steps-card-container {
@@ -182,12 +188,12 @@ main {
 }
 
 .hydration-weekly-label {
-  font-size: 1vw;
-  padding-top: 1vw;
+  font-size: $one-vw;
+  padding-top: $one-vw;
 }
 
 .hydration-weekly-amount {
-  font-size: 2vw;
+  font-size: $font-size1;
 }
 
 .hydration-data-line {
@@ -197,7 +203,7 @@ main {
 }
 
 .trend-line {
-  font-size: 2vw;
+  font-size: $font-size1;
   text-align: center;
   width: 20vw;
 }
@@ -205,51 +211,51 @@ main {
 /* BUTTONS */
 .info-button {
   background-position: center;
-  background-size: 3.4vw;
+  background-size: $three-point-four-vw;
   border: none;
   display: inline;
-  height: 3.4vw;
-  margin-left: 1vw;
-  width: 3.4vw;
+  height: $three-point-four-vw;
+  margin-left: $one-vw;
+  width: $three-point-four-vw;
 }
 
 .friends-button {
   background-position: center;
-  background-size: 3.4vw;
+  background-size: $three-point-four-vw;
   border: none;
   display: inline;
-  height: 3.4vw;
-  margin-right: 1vw;
-  width: 3.4vw;
+  height: $three-point-four-vw;
+  margin-right: $one-vw;
+  width: $three-point-four-vw;
 }
 
 .calendar-button {
   background-position: center;
-  background-size: 3.4vw;
+  background-size: $three-point-four-vw;
   border: none;
   display: inline;
   float: right;
-  height: 3.4vw;
-  margin-right: 1vw;
-  width: 3.4vw;
+  height: $three-point-four-vw;
+  margin-right: $one-vw;
+  width: $three-point-four-vw;
 }
 
 .trending-button {
   background-position: center;
-  background-size: 3.4vw;
+  background-size: $three-point-four-vw;
   border: none;
-  height: 3.4vw;
-  margin-left: 1vw;
-  width: 3.4vw;
+  height: $three-point-four-vw;
+  margin-left: $one-vw;
+  width: $three-point-four-vw;
 }
 
 .go-back-button {
   background-position: center;
-  background-size: 3.4vw;
+  background-size: $three-point-four-vw;
   border: none;
-  height: 3.4vw;
-  margin-left: 1vw;
-  width: 3.4vw;
+  height: $three-point-four-vw;
+  margin-left: $one-vw;
+  width: $three-point-four-vw;
 }
 
 .steps-go-back-button {
